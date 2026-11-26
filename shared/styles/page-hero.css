@@ -1,0 +1,12 @@
+/* Inner-page banner: photo, dark overlay, title and breadcrumb (starts under the fixed navbar). */
+.page-hero { position:relative; isolation:isolate; overflow:hidden; background:#222; color:#fff; text-align:center; padding:10.5rem 1.5rem 4.5rem; }
+.page-hero-img { position:absolute; inset:0; z-index:-2; width:100%; height:100%; object-fit:cover; }
+.page-hero::before { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.68)); }
+.page-hero h1 { margin:0; font-size:clamp(2rem,5vw,3.6rem); font-weight:800; letter-spacing:.02em; text-shadow:0 2px 14px rgba(0,0,0,.5); }
+.page-hero-sub { max-width:40rem; margin:1rem auto 0; font-size:1.05rem; color:#eee; }
+.page-hero-inner::after { content:""; display:block; width:4rem; height:4px; margin:1.25rem auto 0; border-radius:3px; background:#fbb713; }
+.crumbs { display:flex; flex-wrap:wrap; justify-content:center; gap:.35rem; list-style:none; margin:1.1rem 0 0; padding:0; font-size:.8rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.crumbs li { display:inline-flex; gap:.35rem; }
+.crumbs a { color:#fff; text-decoration:none; transition:color .2s; }
+.crumbs a:hover { color:#fbb713; }
+.crumbs [aria-current="page"] { color:#fbb713; }

@@ -1,0 +1,27 @@
+/* Audience feature styles: Residential / Commercial tabs. */
+
+/* ===== Residential / Commercial tabs ===== */
+.audience { background:linear-gradient(180deg,#fffdf6,#fff); padding:3.5rem 1.5rem 4rem; }
+.audience-bar { display:flex; justify-content:center; gap:.75rem; margin:0 auto 2.5rem; padding:.4rem; width:fit-content; max-width:100%; background:#1a1a1a; border-radius:999px; box-shadow:0 10px 24px -10px rgba(0,0,0,.45); }
+.audience-tab { display:inline-flex; align-items:center; gap:.6rem; padding:.85rem 2rem; border:0; border-radius:999px; background:transparent; color:#d6d6d6; font-weight:800; font-size:.95rem; letter-spacing:.1em; text-transform:uppercase; cursor:pointer; transition:background .25s, color .25s, transform .25s, box-shadow .25s; }
+.audience-tab:hover { color:#fff; }
+.audience-tab.is-active { background:linear-gradient(135deg,#ffd45e,#fbb713 60%,#e8a100); color:#111; box-shadow:0 6px 16px -4px rgba(251,183,19,.7); }
+.audience-tab:focus-visible { outline:3px solid #fbb713; outline-offset:2px; }
+
+.audience-panel { display:grid; gap:2.5rem; max-width:64rem; margin:0 auto; align-items:center; animation:aud-in .45s ease; }
+.audience-panel[hidden] { display:none; }
+@keyframes aud-in { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+@media (min-width: 800px) { .audience-panel { grid-template-columns:1.05fr .95fr; } }
+.audience-text h2 { margin:0; font-size:clamp(1.6rem,3.5vw,2.2rem); font-weight:800; color:#1b1b1b; }
+.audience-rule { display:block; width:3.5rem; height:4px; margin:.9rem 0 1.4rem; border-radius:3px; background:#fbb713; }
+.audience-text p { margin:0 0 1rem; color:#555; line-height:1.75; }
+.audience-text ul { list-style:none; margin:1.2rem 0 1.5rem; padding:0; display:grid; gap:.7rem; }
+.audience-text li { display:flex; align-items:center; gap:.7rem; font-weight:600; color:#222; }
+.audience-photo { position:relative; border-radius:.6rem; overflow:hidden; box-shadow:0 22px 40px -16px rgba(0,0,0,.4); border-bottom:4px solid #fbb713; }
+.audience-photo img { display:block; width:100%; height:100%; aspect-ratio:5/4; object-fit:cover; }
+@media (max-width: 520px) { .audience-tab { padding:.75rem 1.1rem; font-size:.8rem; } }
+@media (prefers-reduced-motion: reduce) { .audience-panel { animation:none; } }
+
+.audience-check { color:#fbb713; flex:none; }
+.audience-link { display:inline-flex; align-items:center; gap:.6rem; margin-top:.5rem; color:#111; font-weight:800; font-size:.9rem; letter-spacing:.06em; text-transform:uppercase; text-decoration:none; border-bottom:2px solid #fbb713; padding-bottom:.2rem; transition:gap .25s, color .2s; }
+.audience-link:hover { gap:1rem; color:#c98a00; }

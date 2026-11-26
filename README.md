@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WCSS Construction website
 
-## Getting Started
-
-First, run the development server:
+Next.js (App Router) + Tailwind CSS 4, organised by **feature**.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Architecture
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/                      Routing only: layout.tsx, page.tsx, globals.css (base styles)
+features/<name>/          One folder per feature (self-contained)
+  components/             React components for the feature
+  data/                   Content and constants (text, links, images)
+  styles/                 The feature's own CSS
+  index.ts                Public API — the only thing other code may import
+shared/
+  components/             Reusable UI used by several features (Reveal, icons)
+  config/site.ts          Business details: name, phone, email, address, social links
+public/                   Static assets
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Features
 
-## Learn More
+| Feature    | What it owns                                                                 |
+| ---------- | ---------------------------------------------------------------------------- |
+| `navbar`   | Header, top bar, desktop menu + dropdowns, mobile drawer, scroll progress    |
+| `search`   | In-page search box with text highlighting                                    |
+| `hero`     | Home banner slider (Swiper), static fallback, service-area strip             |
+| `audience` | Residential / Commercial tabs                                                |
+| `services` | "Our Services" section, service cards, photo gallery modal                   |
+| `about`    | Contracting message, specialties, team, promise sections, stats strip        |
+| `footer`   | Footer, back-to-top button, mobile call / estimate bar                       |
+| `remodeling` / `construction` | Overview page + one page per remodeling / construction type |
+| `faq`      | /faq accordion                                                               |
+| `gallery`  | /gallery filterable photo grid with lightbox                                 |
+| `contact`  | /contact details and quote request form                                      |
+| `service-areas` | /service-areas page                                                     |
 
-To learn more about Next.js, take a look at the following resources:
+Service, remodeling and construction lists live in `shared/config/*-catalog.ts` and feed both the navbar and the pages.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Rules
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Import another feature only through its `index.ts` (e.g. `@/features/search`), never its internal files.
+- Features must not import from each other's `data/` or `styles/`.
+- Anything used by two or more features goes in `shared/`.
+- Edit business details (phone, email, address, areas) in `shared/config/site.ts`; edit page copy in each feature's `data/`.
+- Pages in `app/` only compose feature components.
 
-## Deploy on Vercel
+### Adding a feature
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Create `features/<name>/{components,data,styles}` and an `index.ts` exporting its public components.
+2. Import the CSS from the feature's main component (`import "../styles/<name>.css"`).
+3. Use it from a page in `app/`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Notes
+
+- Cache Components is enabled in `next.config.ts`; the home banner is wrapped in `<Suspense>` with a static fallback because Swiper reads the current time.
+- Placeholder content: photos (picsum.photos), stats figures and some copy still need real values.

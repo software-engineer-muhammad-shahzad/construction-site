@@ -1,0 +1,29 @@
+/* Hero feature styles: banner slider and the service-area strip. */
+
+/* Home hero slider (Swiper) */
+.hero-slider { position:relative; background:#222; }
+.hero-swiper { height:100vh; min-height:560px; --swiper-theme-color:#fbb713; --swiper-navigation-color:#fff; }
+.hero-slide-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.hero-slide-overlay { position:relative; height:100%; display:grid; place-items:center; text-align:center; color:#fff; background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.4)); padding:0 3.5rem; }
+.hero-slide-overlay h1 { color:#fff; font-weight:800; letter-spacing:.02em; text-shadow:0 2px 14px rgba(0,0,0,.5); font-size:clamp(2rem,5.5vw,4.25rem); margin:0 0 .5rem; }
+.hero-slide-overlay p { font-size:1.2rem; margin:0 0 1.5rem; }
+.hero-swiper .swiper-button-prev, .hero-swiper .swiper-button-next { transform:scale(.7); }
+
+/* Slider arrows: hidden until hovered/focused */
+.hero-swiper .swiper-button-prev, .hero-swiper .swiper-button-next { opacity:0; transition:opacity .25s; }
+.hero-swiper .swiper-button-prev:hover, .hero-swiper .swiper-button-next:hover,
+.hero-swiper .swiper-button-prev:focus-visible, .hero-swiper .swiper-button-next:focus-visible { opacity:1; }
+.hero-slide-overlay h1 .hero-accent { color:#fbb713; }
+
+/* Service-area strip under the banner */
+.area-strip { display:flex; align-items:center; justify-content:center; gap:.6rem; background:#fbb713; color:#1b1b1b; padding:1rem 1.25rem; border-bottom:1px solid rgba(0,0,0,.1); box-shadow:inset 0 1px 0 rgba(255,255,255,.5); font-size:.95rem; letter-spacing:.03em; text-align:center; }
+.area-strip p { margin:0; font-weight:500; }
+.area-strip strong { font-weight:700; }
+.area-strip svg { flex:none; }
+
+/* Scroll-down button at the bottom of the banner */
+.hero-down { position:absolute; left:50%; bottom:0; transform:translateX(-50%); z-index:10; display:flex; align-items:center; justify-content:center; width:2.6rem; height:2rem; background:#fbb713; color:#111; border-radius:.35rem .35rem 0 0; }
+.hero-down svg { animation:hero-down-bob 1.5s ease-in-out infinite; }
+@keyframes hero-down-bob { 0%,100% { transform:translateY(-2px); } 50% { transform:translateY(3px); } }
+.hero-down:hover { background:#ffd45e; }
+@media (prefers-reduced-motion: reduce) { .hero-down svg { animation:none; } }

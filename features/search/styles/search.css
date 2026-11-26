@@ -1,0 +1,15 @@
+/* In-page search box and highlight styles. */
+
+/* Search icon in the top bar: expands into an input */
+.searchbox { display:flex; align-items:center; border:1px solid rgba(255,255,255,.35); border-radius:999px; height:1.9rem; transition:background .2s, border-color .2s; }
+.searchbox input { width:0; padding:0; border:0; background:transparent; color:#fff; font-size:.8rem; outline:none; transition:width .3s ease, padding .3s ease; }
+.searchbox input::placeholder { color:rgba(255,255,255,.6); }
+.searchbox.open input { width:11rem; padding:0 .4rem 0 .9rem; }
+.searchbox.open { border-color:#fbb713; background:rgba(0,0,0,.35); }
+.searchbox button { display:flex; align-items:center; justify-content:center; width:1.9rem; height:1.9rem; border:0; border-radius:50%; background:transparent; color:#fff; cursor:pointer; transition:background .2s, color .2s; }
+.searchbox button:hover, .searchbox.open button { background:#fbb713; color:#111; }
+
+/* In-page search highlights (CSS Custom Highlight API) */
+::highlight(site-search) { background-color:#ffe27a; color:#111; }
+::highlight(site-search-current) { background-color:#fbb713; color:#111; }
+.searchbox-count { font-size:.72rem; color:#fbb713; padding-right:.35rem; white-space:nowrap; text-shadow:none; }

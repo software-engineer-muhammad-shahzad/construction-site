@@ -1,0 +1,101 @@
+/* Services feature styles: section, cards and the photo gallery modal. */
+
+.services-section { scroll-margin-top:3.5rem; }
+
+/* Service tile: hover layer with "+" button and info */
+.tile-layer { position:absolute; inset:0; background:rgba(0,0,0,.55); opacity:0; transition:opacity .3s; display:flex; flex-direction:column; justify-content:flex-end; text-align:left; padding:1rem; }
+.tile:hover .tile-layer, .tile:focus-within .tile-layer { opacity:1; }
+.tile-img { transition:transform .5s; }
+.tile:hover .tile-img { transform:scale(1.08); }
+.tile-plus { position:absolute; top:0; right:0; width:2.6rem; height:2.6rem; background:#fbb713; color:#fff; border:0; display:flex; align-items:center; justify-content:center; cursor:pointer; transform:translateY(-100%); transition:transform .3s, background .2s; }
+.tile:hover .tile-plus, .tile:focus-within .tile-plus { transform:none; }
+.tile-plus:hover { background:#ffd45e; color:#111; }
+.tile-info { transform:translateY(14px); opacity:0; transition:transform .35s .05s, opacity .35s .05s; }
+.tile:hover .tile-info, .tile:focus-within .tile-info { transform:none; opacity:1; }
+.tile-title { color:#fff; font-weight:800; font-size:1.05rem; text-transform:uppercase; margin:0 0 .6rem; }
+.tile-tag { display:inline-block; background:#fbb713; color:#111; font-size:.7rem; font-weight:700; text-transform:uppercase; padding:.35rem .7rem; text-decoration:none; }
+.tile-tag:hover { background:#ffd45e; }
+
+/* Photo modal */
+.tile-modal { border:0; padding:0; background:#111; max-width:min(92vw,1000px); width:100%; margin:auto; border-radius:.4rem; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.6); }
+.tile-modal::backdrop { background:rgba(0,0,0,.75); backdrop-filter:blur(3px); }
+.tile-modal[open] { animation:tile-modal-in .3s ease; }
+@keyframes tile-modal-in { from { opacity:0; transform:scale(.94); } to { opacity:1; transform:none; } }
+
+/* ===== Professional gallery modal ===== */
+.tile-modal { background:#141414; max-width:min(94vw,1040px); border-radius:.6rem; text-align:left; }
+.gallery-head { display:flex; align-items:center; gap:1rem; padding:.9rem 1.25rem; border-bottom:3px solid #fbb713; background:linear-gradient(180deg,#1d1d1f,#141414); }
+.gallery-head > div { flex:1; min-width:0; }
+.gallery-kicker { margin:0; color:#fbb713; font-size:.68rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase; }
+.gallery-title { margin:.1rem 0 0; color:#fff; font-size:1.15rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
+.gallery-count { margin:0; color:#9a9a9a; font-size:.9rem; letter-spacing:.1em; }
+.gallery-count strong { color:#fff; font-size:1.2rem; }
+.gallery-close { width:2.4rem; height:2.4rem; border:1px solid rgba(255,255,255,.25); border-radius:50%; background:transparent; color:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s, color .2s, transform .25s; }
+.gallery-close:hover { background:#fbb713; color:#111; border-color:#fbb713; transform:rotate(90deg); }
+
+.gallery-main { --swiper-navigation-color:#fff; --swiper-navigation-size:20px; height:min(58vh,560px); background:#000; }
+.gallery-main .swiper-slide { display:flex; align-items:center; justify-content:center; }
+.gallery-img { width:100%; height:100%; object-fit:contain; display:block; }
+.gallery-main .swiper-button-prev, .gallery-main .swiper-button-next { width:3rem; height:3rem; background:rgba(20,20,20,.65); backdrop-filter:blur(4px); border:1px solid rgba(255,255,255,.2); border-radius:50%; transition:background .2s, transform .2s; }
+.gallery-main .swiper-button-prev { left:1rem; } .gallery-main .swiper-button-next { right:1rem; }
+.gallery-main .swiper-button-prev:hover, .gallery-main .swiper-button-next:hover { background:#fbb713; --swiper-navigation-color:#111; transform:scale(1.08); }
+
+.gallery-thumbs { padding:.8rem 1.25rem 1rem; background:#141414; }
+.gallery-thumbs .swiper-slide { height:4.2rem; border-radius:.3rem; overflow:hidden; cursor:pointer; opacity:.45; border:2px solid transparent; transition:opacity .25s, border-color .25s, transform .25s; }
+.gallery-thumbs .swiper-slide img { width:100%; height:100%; object-fit:cover; display:block; }
+.gallery-thumbs .swiper-slide:hover { opacity:.8; }
+.gallery-thumbs .swiper-slide-thumb-active { opacity:1; border-color:#fbb713; transform:translateY(-2px); }
+@media (max-width: 600px) { .gallery-main { height:42vh; } .gallery-thumbs .swiper-slide { height:3.2rem; } .gallery-title { font-size:.95rem; } }
+
+/* Gallery arrows: Swiper 12+ draws arrows as inline SVG — size the button via the variable and shrink the icon inside */
+.gallery-main { --swiper-navigation-size:3rem; --swiper-navigation-sides-offset:1rem; }
+.gallery-main .swiper-button-prev, .gallery-main .swiper-button-next { left:auto; right:auto; margin-top:calc(0px - (var(--swiper-navigation-size) / 2)); padding:0; }
+.gallery-main .swiper-button-prev { left:var(--swiper-navigation-sides-offset); }
+.gallery-main .swiper-button-next { right:var(--swiper-navigation-sides-offset); }
+.gallery-main .swiper-button-prev svg, .gallery-main .swiper-button-next svg { width:38%; height:38%; }
+.gallery-main .swiper-button-prev:hover svg, .gallery-main .swiper-button-next:hover svg { color:#111; }
+@media (max-width: 600px) { .gallery-main { --swiper-navigation-size:2.4rem; --swiper-navigation-sides-offset:.5rem; } }
+
+/* Gallery: progress bar, play + zoom buttons */
+.gallery-head { border-bottom:0; gap:.6rem; }
+.gallery-head > div { margin-right:auto; }
+.gallery-count { margin-right:.6rem; }
+.gallery-progress { height:3px; background:rgba(251,183,19,.2); }
+.gallery-progress span { display:block; height:100%; background:linear-gradient(90deg,#fbb713,#ffd45e); transition:width .5s ease; }
+.gallery-btn { width:2.4rem; height:2.4rem; border:1px solid rgba(255,255,255,.25); border-radius:50%; background:transparent; color:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s, color .2s, border-color .2s; }
+.gallery-btn:hover, .gallery-btn[aria-pressed="true"] { background:#fbb713; color:#111; border-color:#fbb713; }
+.gallery-main .swiper-zoom-container { width:100%; height:100%; cursor:zoom-in; }
+.gallery-main .swiper-zoom-container > img { max-width:100%; max-height:100%; object-fit:contain; }
+.gallery-main .swiper-slide-zoomed .swiper-zoom-container { cursor:zoom-out; }
+
+/* Whole card is a link; the + button opens the gallery */
+.tile-link { position:absolute; inset:0; z-index:1; border-radius:.25rem; }
+.tile-link:focus-visible { outline:3px solid #fbb713; outline-offset:4px; }
+.tile-layer { z-index:2; pointer-events:none; }
+.tile-plus { pointer-events:auto; z-index:3; }
+.tile:hover h3 { color:#c98a00; }
+.tile h3 { transition:color .2s; }
+.tile-tag { pointer-events:none; }
+
+/* Hover: whole card settles down a little and the icon above it grows */
+.tile { transition:transform .35s cubic-bezier(.22,1,.36,1); }
+.tile:hover, .tile:focus-within { transform:translateY(10px); }
+.tile-icon { transition:transform .35s cubic-bezier(.22,1,.36,1); transform-origin:center bottom; }
+.tile:hover .tile-icon, .tile:focus-within .tile-icon { transform:scale(1.6); }
+@media (prefers-reduced-motion: reduce) { .tile:hover, .tile:focus-within, .tile:hover .tile-icon { transform:none; } }
+.tile:hover .tile-icon, .tile:focus-within .tile-icon { transform:scale(1.9); }
+.tile-icon { margin-bottom:.9rem; }
+
+/* ===== Services section polish ===== */
+.services-section { background:radial-gradient(circle at 1px 1px, rgba(0,0,0,.07) 1px, transparent 0) 0 0 / 22px 22px, linear-gradient(180deg,#fffdf6 0%,#ffffff 55%); }
+.tile { transition:transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s; }
+.tile:hover, .tile:focus-within { box-shadow:0 22px 40px -12px rgba(0,0,0,.28); }
+/* growing yellow bar along the bottom of the card */
+.tile::after { content:""; position:absolute; left:0; right:0; bottom:0; height:4px; background:linear-gradient(90deg,#fbb713,#ffd45e); transform:scaleX(0); transform-origin:left; transition:transform .45s ease; z-index:2; pointer-events:none; }
+.tile:hover::after, .tile:focus-within::after { transform:scaleX(1); }
+/* icon in a soft circle */
+.tile-icon { display:flex; align-items:center; justify-content:center; width:3.6rem; height:3.6rem; margin:0 auto 1rem; border-radius:50%; background:rgba(251,183,19,.16); color:#c98a00; transition:background .3s, color .3s, box-shadow .3s; transform:none !important; }
+.tile-icon svg { transition:transform .35s cubic-bezier(.22,1,.36,1); }
+.tile:hover .tile-icon, .tile:focus-within .tile-icon { background:#fbb713; color:#111; box-shadow:0 8px 18px rgba(251,183,19,.45); }
+.tile:hover .tile-icon svg, .tile:focus-within .tile-icon svg { transform:scale(1.4); }
+.tile-media { border-radius:.5rem; }

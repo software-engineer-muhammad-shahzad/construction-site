@@ -1,0 +1,15 @@
+/* Contact feature styles: quote request form. */
+.cf { display:grid; gap:1.1rem; }
+.cf-row { display:grid; gap:1.1rem; }
+@media (min-width: 640px) { .cf-row { grid-template-columns:1fr 1fr; } }
+.cf label { display:grid; gap:.4rem; }
+.cf label span { font-size:.75rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#444; }
+.cf input, .cf select, .cf textarea { width:100%; padding:.8rem 1rem; border:1px solid rgba(0,0,0,.18); border-radius:.45rem; background:#fff; color:#1b1b1b; font:inherit; transition:border-color .2s, box-shadow .2s; }
+.cf textarea { resize:vertical; min-height:8rem; }
+.cf input:focus, .cf select:focus, .cf textarea:focus { outline:none; border-color:#fbb713; box-shadow:0 0 0 3px rgba(251,183,19,.3); }
+.cf input:user-invalid, .cf textarea:user-invalid { border-color:#d33; }
+.cf-submit { justify-self:start; display:inline-flex; align-items:center; gap:.7rem; padding:.95rem 2rem; border:0; border-radius:999px; background:linear-gradient(135deg,#ffd45e,#fbb713 60%,#e8a100); color:#111; font-weight:800; font-size:.9rem; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; box-shadow:0 10px 22px -8px rgba(251,183,19,.7); transition:transform .25s, box-shadow .25s, gap .25s; }
+.cf-submit:hover { transform:translateY(-2px); gap:1rem; box-shadow:0 14px 26px -8px rgba(251,183,19,.85); }
+.cf-submit:focus-visible { outline:3px solid #111; outline-offset:3px; }
+.cf-note { margin:0; font-size:.8rem; color:#666; }
+.cf-note a { color:#c98a00; font-weight:700; }

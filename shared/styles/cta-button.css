@@ -1,0 +1,12 @@
+/* Shared call-to-action button (pill with shine, arrow badge and pulse). */
+/* ===== CTA button ===== */
+.cta-btn { position:relative; display:inline-flex; align-items:center; gap:.75rem; margin-top:2.25rem; padding:1rem 2rem; border-radius:999px; overflow:hidden; background:linear-gradient(135deg,#ffd45e 0%,#fbb713 55%,#e8a100 100%); color:#111; font-weight:800; font-size:.95rem; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; box-shadow:0 10px 24px -6px rgba(251,183,19,.65), inset 0 1px 0 rgba(255,255,255,.55); transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s; animation:cta-pulse 2.6s ease-out infinite; }
+.cta-btn::before { content:""; position:absolute; top:0; left:-60%; width:40%; height:100%; background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent); transform:skewX(-20deg); transition:left .7s ease; }
+.cta-btn:hover { transform:translateY(-3px); box-shadow:0 16px 30px -8px rgba(251,183,19,.85), inset 0 1px 0 rgba(255,255,255,.6); animation:none; }
+.cta-btn:hover::before { left:130%; }
+.cta-btn:active { transform:translateY(-1px) scale(.98); }
+.cta-btn svg { flex:none; width:2rem; height:2rem; padding:.4rem; border-radius:50%; background:#111; color:#fbb713; transition:transform .3s cubic-bezier(.22,1,.36,1); }
+.cta-btn:hover svg { transform:translateX(4px); }
+.cta-btn:focus-visible { outline:3px solid #fff; outline-offset:3px; }
+@keyframes cta-pulse { 0% { box-shadow:0 10px 24px -6px rgba(251,183,19,.65), 0 0 0 0 rgba(251,183,19,.55); } 70%,100% { box-shadow:0 10px 24px -6px rgba(251,183,19,.65), 0 0 0 16px rgba(251,183,19,0); } }
+@media (prefers-reduced-motion: reduce) { .cta-btn { animation:none; } .cta-btn::before { display:none; } }
