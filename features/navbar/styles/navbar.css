@@ -34,7 +34,8 @@ html[data-scrolled="true"] .logo { display:none; }
 html[data-scrolled="true"] .navwrap { justify-content:center; padding-top:0; padding-bottom:0; }
 html[data-scrolled="true"] .desktop { margin-left:0; }
 html[data-scrolled="true"] .desktop > ul { justify-content:center; }
-html[data-scrolled="true"] .desktop a { padding:.9rem 0; }
+html[data-scrolled="true"] .desktop > ul > li > a { padding:.9rem 0; }
+html[data-scrolled="true"] .desktop .sub a { padding:.9rem 1.25rem; }
 html[data-scrolled="true"] .mobile { margin-left:0; }
 
 /* Translucent fixed navbar: the banner image shows through */
