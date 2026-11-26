@@ -42,8 +42,7 @@ html[data-scrolled="true"] .to-top { transform:none; }
 .footer-cta { display:inline-flex; align-items:center; gap:.6rem; margin-top:1.4rem; padding:.7rem 1.2rem; border-radius:999px; background:linear-gradient(135deg,#ffd45e,#fbb713 60%,#e8a100); color:#111; font-weight:800; font-size:.75rem; letter-spacing:.06em; text-transform:uppercase; text-decoration:none; box-shadow:0 8px 18px -6px rgba(251,183,19,.6); transition:transform .25s, box-shadow .25s, gap .25s; }
 .footer-cta:hover { transform:translateY(-2px); gap:.9rem; box-shadow:0 12px 22px -6px rgba(251,183,19,.8); }
 
-/* Brand logo, service-area chips and credential badges */
-.footer-logo { filter:drop-shadow(0 4px 12px rgba(251,183,19,.45)); }
+/* Service-area chips and credential badges */
 .footer-chip { padding:.3rem .75rem; border:1px solid rgba(251,183,19,.35); border-radius:999px; color:#e6e6e6; font-size:11px; font-weight:600; letter-spacing:.04em; background:rgba(251,183,19,.07); }
 .footer-badge { display:inline-flex; align-items:center; gap:.4rem; padding:.3rem .8rem; border-radius:999px; background:rgba(251,183,19,.12); color:#fbb713; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
 

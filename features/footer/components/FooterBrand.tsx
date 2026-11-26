@@ -6,16 +6,13 @@ import { site } from "@/shared/config/site";
 export default function FooterBrand() {
   return (
     <Reveal className="footer-card">
-      <Link href="/" className="inline-flex items-center gap-3" aria-label={`${site.name} home`}>
-        <svg viewBox="0 0 100 70" width="56" height="39" className="footer-logo" aria-hidden="true">
-          <path d="M8 62 L60 8 L60 40 Z" fill="#fbb713" />
-          <path d="M8 62 L60 22 L60 52 Z" fill="#ffd45e" opacity=".8" />
-          <path d="M62 10 Q88 24 82 60 L70 60 Q76 28 62 20 Z" fill="#fff" />
-        </svg>
-        <span className="leading-tight">
-          <strong className="block text-xl tracking-[0.2em]">WCSS</strong>
-          <span className="text-[11px] tracking-[0.25em] text-gray-400 uppercase">Construction</span>
-        </span>
+      <Link
+        href="/"
+        className="inline-block rounded bg-white p-2 shadow-lg shadow-black/40 transition hover:-translate-y-0.5"
+        aria-label={`${site.name} home`}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/logo.png" alt={site.name} width={350} height={424} loading="lazy" className="h-auto w-24" />
       </Link>
       <p className="mt-5 max-w-xs leading-6 text-gray-400">
         Quality remodeling and construction you can trust, serving {site.serviceAreas[0]}, {site.serviceAreas[1]} and{" "}

@@ -164,3 +164,8 @@ html[data-scrolled="true"] .site-header { background:linear-gradient(180deg, rgb
 .mnav-sub a:hover { color:#fbb713; }
 .mnav-call { margin-top:auto; display:block; text-align:center; background:#fbb713; color:#111; font-weight:700; padding:.95rem 1rem; border-radius:.4rem; text-decoration:none; }
 @media (max-width: 1000px) { .mnav { display:block; } }
+
+/* Real logo image (yellow version) */
+.logo { padding:.35rem .5rem; }
+.logo-img { display:block; width:5.4rem; height:auto; }
+@media (max-width: 1000px) { .logo-img { width:3.6rem; } }
